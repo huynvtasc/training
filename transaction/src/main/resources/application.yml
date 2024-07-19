@@ -1,0 +1,12 @@
+server:
+  port: 8090
+spring:
+  application:
+   name: transaction
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 1234567890
+    username: root
+    url: jdbc:mysql://localhost:3306/hibernatecoredb
+  jpa:
+    show-sql: true
