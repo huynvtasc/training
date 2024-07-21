@@ -1,6 +1,8 @@
 package org.ngvhuy.service;
 
 import org.hibernate.Session;
+import org.hibernate.envers.AuditReader;
+import org.hibernate.envers.AuditReaderFactory;
 import org.ngvhuy.config.HibernateUtils;
 import org.ngvhuy.entity.User;
 
@@ -43,5 +45,25 @@ public class UserService {
 
 
         return "Save all users successfully !!";
+    }
+
+    public void testAuditing() {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+            session.getTransaction().begin();
+
+            User user = session.find(User.class, 7L);
+            user.setUsername("Auditing33333");
+
+            session.getTransaction().commit();
+
+            AuditReader reader = AuditReaderFactory.get(session);
+
+            User user1 = reader.find(User.class, 7L, 3);
+
+            System.out.println(user1.getUsername());
+
+        } catch (Exception ex) {
+            System.out.println("Errorrr...!!!");
+        }
     }
 }

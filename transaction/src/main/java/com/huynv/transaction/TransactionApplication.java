@@ -34,7 +34,8 @@ public class TransactionApplication {
         throw new RuntimeException();
     }
 
-    @GetMapping("/case2") // Hàm con và hàm cha cùng chung một transaction
+    @GetMapping("/case2")
+    @Transactional // Hàm con và hàm cha cùng chung một transaction
     public String testRequire() {
         User user = User.builder()
                 .username("username1").fullname("fullname1")
@@ -53,7 +54,6 @@ public class TransactionApplication {
     }
 
     @GetMapping("/case4") // Chỗ này phải có transaction
-    @Transactional
     public String testMandatory() {
         service.saveMandatory();
         return "Successful !!!";
@@ -64,5 +64,29 @@ public class TransactionApplication {
     public String testNever() {
         service.saveNever();
         return "Successful !!!";
+    }
+
+    @GetMapping("/test-pre-persist")
+    public String testPrePersist() {
+        User user = User.builder()
+                .username("username1").fullname("fullname1")
+                .password("123456").build();
+        repository.save(user);
+        return "Success !!!";
+    }
+
+    @GetMapping("/test-pre-update")
+    public String testPreUpdate() {
+        User user = repository.findById(12L).get();
+        user.setUsername("Pre Update");
+        repository.save(user);
+        return "Success !!!";
+    }
+
+    @GetMapping("/test-pre-remove")
+    public String testPreRemove() {
+        User user = repository.findById(4L).get();
+        repository.delete(user);
+        return "Success !!!";
     }
 }

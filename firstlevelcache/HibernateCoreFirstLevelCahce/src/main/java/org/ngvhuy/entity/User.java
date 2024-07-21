@@ -1,8 +1,9 @@
 package org.ngvhuy.entity;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Getter
@@ -13,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Audited
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
