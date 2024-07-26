@@ -1,5 +1,6 @@
 package org.huynv.projectionstoreprocedure.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.huynv.projectionstoreprocedure.dto.EmployeeDto;
 import org.huynv.projectionstoreprocedure.dto.IEmployeeDto;
 import org.huynv.projectionstoreprocedure.dto.IEmployeeDto2;
@@ -7,6 +8,7 @@ import org.huynv.projectionstoreprocedure.dto.IEmployeeDto3;
 import org.huynv.projectionstoreprocedure.entity.Address;
 import org.huynv.projectionstoreprocedure.entity.Employee;
 import org.huynv.projectionstoreprocedure.repository.EmployeeRepository;
+import org.huynv.projectionstoreprocedure.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,9 +19,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("projection/employees")
+@Slf4j
 public class EmployeeProjectionController {
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private EmployeeService employeeService;
 
     @GetMapping("/save")
     @Transactional
@@ -47,23 +53,26 @@ public class EmployeeProjectionController {
 //        return employeeRepository.findByLastName("Huy");
 //    }
 
-    @GetMapping("/dto2") // findByLastName() -> ok -> interface projection
-    public List<IEmployeeDto> getProjection() {
-        return employeeRepository.findByLastName("Huy");
-    }
+//    @GetMapping("/dto2") // findByLastName() -> ok -> interface projection
+//    public List<IEmployeeDto> getProjection() {
+//        return employeeRepository.findByLastName("Huy");
+//    }
 
-    @GetMapping("/dto31") // findProjectionJPQL() -> null -> interface projection
+    @GetMapping("/dto31") // findProjectionJPQL() -> OK -> interface projection
     public List<IEmployeeDto> getProjectionJPQL() {
         return employeeRepository.findProjectionJPQL("Huy");
     }
 
     @GetMapping("/dto32") // findProjectionJPQL() -> ok -> interface projection
     public List<IEmployeeDto> getProjectionJPQL2() {
+        employeeService.callService("Hehehehe");
         return employeeRepository.findProjectionJPQL2("Huy");
     }
 
     @GetMapping("/dto41") // findProjectionNativeQuery() -> ok -> interface projection
     public List<IEmployeeDto> getProjectionNativeQuery() {
+        log.info("Log info..............");
+        log.warn("Log warn..............");
         return employeeRepository.findProjectionNativeQuery("Huy");
     }
 

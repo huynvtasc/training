@@ -1,0 +1,16 @@
+2024-07-22 10:55:16 ---> DEBUG org.hibernate.SQL - SELECT e.first_name, e.last_name FROM employee e WHERE e.last_name = ?
+2024-07-22 14:48:03 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 14:48:10 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 14:49:00 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 14:49:04 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 14:49:07 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 14:50:44 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 14:50:50 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 15:20:15 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 15:23:49 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 15:39:45 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 15:42:06 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 16:29:22 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 16:32:39 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 16:36:08 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?
+2024-07-22 16:42:46 ---> DEBUG org.hibernate.SQL - select e1_0.id,e1_0.first_name,e1_0.last_name from employee e1_0 where e1_0.last_name=?

@@ -19,8 +19,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 //            "WHERE e.lastName = :lastName")
 //    List<EmployeeDto> findByLastName(String lastName);
 
-    List<IEmployeeDto> findByLastName(String lastName);
-    @Query("SELECT e.firstName, e.lastName " +
+//    List<IEmployeeDto> findByLastName(String lastName);
+    @Query("SELECT e.firstName AS firstName, e.lastName AS lastName " +
             "FROM Employee e " +
             "WHERE e.lastName = :lastName")
     List<IEmployeeDto> findProjectionJPQL(String lastName);
